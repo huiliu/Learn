@@ -1,5 +1,6 @@
 #include "FrameSizer.h"
 #include <wx/wx.h>
+#include "trie.h"
 
 class MyApp : public wxApp
 {
@@ -18,3 +19,4 @@ bool MyApp::OnInit()
 }
 
 IMPLEMENT_APP(MyApp);
+
