@@ -17,8 +17,13 @@ void CommandCache::AppendCommand(const wxString& cmd)
 		return;
 	}
 
-	m_nCachedCursor++;
+	m_nCachedCursor = m_vecCachedCommand.size() - 1;
 	assert(m_nCachedCursor <= m_nCachedMaxCount - 1);
+}
+
+const CmdCacheEntry& CommandCache::GetCurCmd()
+{
+	return GetCommand(m_nCachedCursor);
 }
 
 const CmdCacheEntry& CommandCache::MoveForeword()

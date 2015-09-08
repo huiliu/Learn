@@ -21,10 +21,13 @@ public:
 	}
 
 	void AppendCommand(const wxString& cmd);
-	void Clear();
+	
+	const CmdCacheEntry& GetCurCmd();
 	const CmdCacheEntry& MoveForeword();
 	const CmdCacheEntry& MoveBackword();
 	const CmdCacheEntry& GetCommand(INT32 index);
+
+	void Clear();
 
 private:
 	INT32					m_nCachedCursor;		// 当前光标位置[0, m_vecCachedCommand.size)

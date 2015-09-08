@@ -14,15 +14,23 @@ public:
 	virtual void Process(wxKeyEvent& event) = 0;
 };
 
+/*
+ * 处理字符输入.
+ * 只能在最后一行进行输入操作
+ *
+ */
 class DefaultKeyHandler : public KeyEventHandler
 {
 public:
 	DefaultKeyHandler() {}
 	~DefaultKeyHandler() {}
 
-	virtual void Process(wxKeyEvent& event) { event.Skip(true); };
+	virtual void Process(wxKeyEvent& event);
 };
 
+/*
+ * 处理up键，返回前一次输入的命令
+ */
 class UpKeyHandler : public KeyEventHandler
 {
 public:
@@ -32,6 +40,9 @@ public:
 	virtual void Process(wxKeyEvent& event);
 };
 
+/*
+ * 处理down键，返回后一次输入的命令
+ */
 class DownKeyHandler : public KeyEventHandler
 {
 public:
@@ -47,6 +58,29 @@ public:
 	ReturnKeyHandler() {}
 	~ReturnKeyHandler() {}
 
+	virtual void Process(wxKeyEvent& event);
+};
+
+/*
+ * 1. 只能在最后一行进行删除操作
+ * 2. 不能删除命令行提示符
+ *
+ */
+class BackKeyHandler : public KeyEventHandler
+{
+public:
+	BackKeyHandler() {}
+	~BackKeyHandler() {}
+
+	virtual void Process(wxKeyEvent& event);
+};
+
+/*
+ * 处理Ctrl - X
+ */
+class CutKeyHandler : public KeyEventHandler
+{
+public:
 	virtual void Process(wxKeyEvent& event);
 };
 

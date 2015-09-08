@@ -37,6 +37,7 @@ private:
 
 	/* Event Handler */
 	void OnChar(wxKeyEvent& event);
+	void OnContextMenu(wxContextMenuEvent& event) { return; }	// ½ûÓÃÓÒ¼ü²Ëµ¥
 
 	wxDECLARE_EVENT_TABLE();
 

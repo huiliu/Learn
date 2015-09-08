@@ -24,9 +24,8 @@ CliCtrl::CliCtrl(wxWindow* parent, wxWindowID id, const wxString& value, const w
 
 void CliCtrl::OnChar(wxKeyEvent& event)
 {
-	wxStreamToTextRedirector redirect(this);
-	
 	int nKeyCode = event.GetKeyCode();
+	
 	KeyEventHandler* handler = KeyEventHandler::GetHandler(nKeyCode);
 	handler->Process(event);
 	return;
@@ -48,4 +47,5 @@ void CliCtrl::AppendCliPrompt()
 
 wxBEGIN_EVENT_TABLE(CliCtrl, wxTextCtrl)
 EVT_CHAR(CliCtrl::OnChar)
+EVT_CONTEXT_MENU(CliCtrl::OnContextMenu)
 wxEND_EVENT_TABLE()
