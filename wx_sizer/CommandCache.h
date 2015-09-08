@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef __WX_SIZER_CLI__
-#define  __WX_SIZER_CLI__
+#define __WX_SIZER_CLI__
 
 #include <wx/wx.h>
 #include <iostream>

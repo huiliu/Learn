@@ -149,12 +149,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TextAutoComplete.cpp" />
+    <ClCompile Include="CliCtrl.cpp" />
     <ClCompile Include="CommandCache.cpp" />
     <ClCompile Include="FrameSizer.cpp" />
     <ClCompile Include="KeyEventHandler.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TextAutoComplete.h" />
+    <ClInclude Include="CliCtrl.h" />
     <ClInclude Include="CommandCache.h" />
     <ClInclude Include="FrameSizer.h" />
     <ClInclude Include="KeyEventHandler.h" />

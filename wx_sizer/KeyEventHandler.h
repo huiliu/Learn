@@ -84,4 +84,13 @@ public:
 	virtual void Process(wxKeyEvent& event);
 };
 
+/*
+ * ¥¶¿ÌTAB
+ */
+class TabKeyHandler : public KeyEventHandler
+{
+public:
+	virtual void Process(wxKeyEvent& event);
+};
+
 #endif // !__WX_SIZER_CLI_KEYEVENTHANDLER__

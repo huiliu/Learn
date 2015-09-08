@@ -13,6 +13,9 @@ int main()
 	dictionary.insert("karabc", "Destiny or fate, following as effect from cause");
 	dictionary.insert("kardef", "Destiny or fate, following as effect from cause");
 	dictionary.insert("kaabc", "Destiny or fate, following as effect from cause");
+	dictionary.insert("karrrbc", "Destiny or fate, following as effect from cause");
+	dictionary.insert("kaeabc", "Destiny or fate, following as effect from cause");
+	dictionary.insert("kareaabc", "Destiny or fate, following as effect from cause");
 	rtv::Trie<char, std::string>::Iterator iter = dictionary.startsWith("kar");
 
 	std::cout << "Keys with prefix kar are " << std::endl;

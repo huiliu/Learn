@@ -1,7 +1,7 @@
 #include "KeyEventHandler.h"
 #include <cassert>
 #include "CommandCache.h"
-#include "FrameSizer.h"
+#include "CliCtrl.h"
 
 KeyEventHandler* KeyEventHandler::GetHandler(long keycode)
 {
@@ -17,6 +17,8 @@ KeyEventHandler* KeyEventHandler::GetHandler(long keycode)
 		return new BackKeyHandler();
 	case WXK_CONTROL_X:
 		return new CutKeyHandler();
+	case WXK_TAB:
+		return new TabKeyHandler();
 	default:
 		return new DefaultKeyHandler();
 	}
@@ -77,7 +79,7 @@ void ReturnKeyHandler::Process(wxKeyEvent& event)
 	CliCtrl* pTextCtrl = dynamic_cast<CliCtrl*>(event.GetEventObject());
 	long lastPoint = pTextCtrl->GetLastPosition();
 	
-	long col, row, lastLineStartPoint, cmdlen;
+	long col, row, lastLineStartPoint;
 	pTextCtrl->PositionToXY(pTextCtrl->GetLastPosition(), &col, &row);
 	lastLineStartPoint = pTextCtrl->XYToPosition(0, row) + LINEPREFIX.size();
 	
@@ -112,4 +114,57 @@ void CutKeyHandler::Process(wxKeyEvent& event)
 {
 	// 屏蔽Ctrl-X操作
 	return;
+}
+
+wxString join(std::vector<std::string>& vecString, char c)
+{
+	wxString result;
+	for (auto& item : vecString)
+	{
+		result += item + c;
+	}
+	return result.Strip(wxString::both);
+}
+
+void TabKeyHandler::Process(wxKeyEvent& event)
+{
+	CliCtrl* pTextCtrl = dynamic_cast<CliCtrl*>(event.GetEventObject());
+	long insertPoint = pTextCtrl->GetInsertionPoint();
+	
+	long col, row;
+	pTextCtrl->PositionToXY(insertPoint, &col, &row);
+	if (pTextCtrl->GetNumberOfLines() - 1 != row)
+	{
+		return;
+	}
+
+	long cmdStartPosition = pTextCtrl->XYToPosition(0, row) + LINEPREFIX.size();
+	long lastPosition = pTextCtrl->GetLastPosition();
+	// 字符数必须>= 2才能进行补全
+	if (lastPosition < cmdStartPosition + AUTO_COMPLETE_MIN_LEN &&
+		cmdStartPosition != lastPosition)
+	{
+		return;
+	}
+	wxString CmdPrefix = pTextCtrl->GetRange(cmdStartPosition, lastPosition);
+
+	std::vector<std::string> vecCommand;
+	pTextCtrl->CommadStartswith(CmdPrefix.c_str(), vecCommand);
+	// 没有匹配
+	if (vecCommand.empty())
+	{
+		return;
+	}
+	// 只有一个匹配
+	if (1 == vecCommand.size())
+	{
+		// 由于返回字符是匹配得到的，故使用字符长度判断两个字符串是否相等
+		if (CmdPrefix.size() != vecCommand[0].size())
+		{
+			pTextCtrl->Replace(cmdStartPosition, lastPosition, vecCommand[0]);
+		}
+		return;
+	}
+	// 有多个匹配
+	pTextCtrl->AppendAutoCompleteCommad(join(vecCommand, '\t'));
 }

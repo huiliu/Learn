@@ -27,6 +27,12 @@
     <ClCompile Include="KeyEventHandler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CliCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextAutoComplete.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrameSizer.h">
@@ -39,6 +45,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="KeyEventHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CliCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TextAutoComplete.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
