@@ -1,4 +1,4 @@
-#include "MessageFrame.h"
+ï»¿#include "MessageFrame.h"
 
 MessageFrame::MessageFrame(const wxString& title)
 	: wxFrame(nullptr, wxID_ANY, title)
@@ -9,7 +9,7 @@ MessageFrame::MessageFrame(const wxString& title)
 	wxGridSizer* pgs = new wxGridSizer(2, 2, 2, 2);
 
 	wxButton* btn1 = new wxButton(pPanel, ID_INFO, wxT("Info"));
-	wxButton* btn2 = new wxButton(pPanel, ID_ERROR, wxT("³ö´í"));
+	wxButton* btn2 = new wxButton(pPanel, ID_ERROR, wxT("å‡ºé”™"));
 	wxButton* btn3 = new wxButton(pPanel, ID_QUESTION, wxT("Ques"));
 	wxButton* btn4 = new wxButton(pPanel, ID_ALERT, wxT("Alert"));
 
@@ -40,40 +40,40 @@ MessageFrame::~MessageFrame()
 
 void MessageFrame::ShowMesg1(wxCommandEvent& event)
 {
-	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ÏÂÔØÍê³É£¡"),
+	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ä¸‹è½½å®Œæˆï¼"),
 		wxT("iInfo"), wxOK|wxICON_INFORMATION);
 	pdialog->ShowModal();
 }
 
 void MessageFrame::ShowMesg2(wxCommandEvent& event)
 {
-	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ÏÂÔØÍê³É£¡"),
+	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ä¸‹è½½å®Œæˆï¼"),
 		wxT("iInfo"), wxOK | wxICON_ERROR);
 	pdialog->ShowModal();
 }
 
 void MessageFrame::ShowMesg3(wxCommandEvent& event)
 {
-	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ÏÂÔØÍê³É£¡"),
+	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ä¸‹è½½å®Œæˆï¼"),
 		wxT("iInfo"), wxYES_NO|wxNO_DEFAULT | wxICON_QUESTION);
 	int ret = pdialog->ShowModal();
 	if (wxID_YES == ret)
 	{
-		wxMessageBox(wxT("Äãµã»÷ÁËYes!"), wxT("Í¨Öª"));
+		wxMessageBox(wxT("ä½ ç‚¹å‡»äº†Yes!"), wxT("é€šçŸ¥"));
 	}
 	else if ( wxID_NO == ret)
 	{
-		wxMessageBox(wxT("Äãµã»÷ÁËNO"), wxT("Í¨Öª"));
+		wxMessageBox(wxT("ä½ ç‚¹å‡»äº†NO"), wxT("é€šçŸ¥"));
 	}
 }
 
 void MessageFrame::ShowMesg4(wxCommandEvent& event)
 {
-	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ÏÂÔØÍê³É£¡"),
+	wxMessageDialog* pdialog = new wxMessageDialog(nullptr, wxT("ä¸‹è½½å®Œæˆï¼"),
 		wxT("iInfo"), wxOK | wxICON_EXCLAMATION);
 	int ret = pdialog->ShowModal();
 	if (wxID_OK == ret)
 	{
-		wxMessageBox(wxT("Äãµã»÷ÁËOK!"), wxT("Í¨Öª"));
+		wxMessageBox(wxT("ä½ ç‚¹å‡»äº†OK!"), wxT("é€šçŸ¥"));
 	}
 }
