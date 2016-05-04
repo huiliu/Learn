@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "widget", "widget\widget.vcxproj", "{E9C7A22C-2070-4DCA-AE98-F15AABDC6C09}"
 EndProject
@@ -12,6 +12,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxServer", "wxServer\wxServer.vcxproj", "{142D791A-F6DC-4F56-81B9-B4E88D58A781}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplicationTest", "ConsoleApplicationTest\ConsoleApplicationTest.vcxproj", "{1FCC0B4C-234E-4186-A1BE-848F548F65A4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heap_example", "heap_example\heap_example.vcxproj", "{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "new_operator", "new_operator\new_operator.vcxproj", "{6208959E-DB41-4B3F-8369-539086BFBD30}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chat", "chat\chat.vcxproj", "{A3983268-F923-464C-9B58-94E5F212A60C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smart_pointer", "smart_pointer\smart_pointer.vcxproj", "{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +69,38 @@ Global
 		{1FCC0B4C-234E-4186-A1BE-848F548F65A4}.Release|x64.Build.0 = Release|x64
 		{1FCC0B4C-234E-4186-A1BE-848F548F65A4}.Release|x86.ActiveCfg = Release|Win32
 		{1FCC0B4C-234E-4186-A1BE-848F548F65A4}.Release|x86.Build.0 = Release|Win32
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Debug|x64.ActiveCfg = Debug|x64
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Debug|x64.Build.0 = Debug|x64
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Debug|x86.ActiveCfg = Debug|Win32
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Debug|x86.Build.0 = Debug|Win32
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Release|x64.ActiveCfg = Release|x64
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Release|x64.Build.0 = Release|x64
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Release|x86.ActiveCfg = Release|Win32
+		{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}.Release|x86.Build.0 = Release|Win32
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Debug|x64.ActiveCfg = Debug|x64
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Debug|x64.Build.0 = Debug|x64
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Debug|x86.ActiveCfg = Debug|Win32
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Debug|x86.Build.0 = Debug|Win32
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Release|x64.ActiveCfg = Release|x64
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Release|x64.Build.0 = Release|x64
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Release|x86.ActiveCfg = Release|Win32
+		{6208959E-DB41-4B3F-8369-539086BFBD30}.Release|x86.Build.0 = Release|Win32
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Debug|x64.ActiveCfg = Debug|x64
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Debug|x64.Build.0 = Debug|x64
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Debug|x86.ActiveCfg = Debug|Win32
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Debug|x86.Build.0 = Debug|Win32
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Release|x64.ActiveCfg = Release|x64
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Release|x64.Build.0 = Release|x64
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Release|x86.ActiveCfg = Release|Win32
+		{A3983268-F923-464C-9B58-94E5F212A60C}.Release|x86.Build.0 = Release|Win32
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Debug|x64.ActiveCfg = Debug|x64
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Debug|x64.Build.0 = Debug|x64
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Debug|x86.ActiveCfg = Debug|Win32
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Debug|x86.Build.0 = Debug|Win32
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Release|x64.ActiveCfg = Release|x64
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Release|x64.Build.0 = Release|x64
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Release|x86.ActiveCfg = Release|Win32
+		{40A4B05A-F1FB-4C8F-AC12-D141B8AAE7A7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
