@@ -24,6 +24,12 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="addressbook.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="reflect_protobuf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -32,5 +38,16 @@
     <ClCompile Include="smart_pointer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="addressbook.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="reflect_protobuf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="addressbook.proto">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
