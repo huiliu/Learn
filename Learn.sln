@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "widget", "widget\widget.vcxproj", "{E9C7A22C-2070-4DCA-AE98-F15AABDC6C09}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost_datetime_sync", "boost_datetime_sync\boost_datetime_sync.vcxproj", "{6A4B2FF7-999D-4EB3-B739-636AFA66DA0D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost_datetime_async", "boost_datetime_async\boost_datetime_async.vcxproj", "{A8EE5322-096D-48C4-ABE1-D24F606D816D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "boost_asio_http_client", "boost_asio_http_client\boost_asio_http_client.vcxproj", "{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,14 @@ Global
 		{A8EE5322-096D-48C4-ABE1-D24F606D816D}.Release|x64.Build.0 = Release|x64
 		{A8EE5322-096D-48C4-ABE1-D24F606D816D}.Release|x86.ActiveCfg = Release|Win32
 		{A8EE5322-096D-48C4-ABE1-D24F606D816D}.Release|x86.Build.0 = Release|Win32
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Debug|x64.ActiveCfg = Debug|x64
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Debug|x64.Build.0 = Debug|x64
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Debug|x86.ActiveCfg = Debug|Win32
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Debug|x86.Build.0 = Debug|Win32
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Release|x64.ActiveCfg = Release|x64
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Release|x64.Build.0 = Release|x64
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Release|x86.ActiveCfg = Release|Win32
+		{DCD9903B-53BC-4B33-B9E8-C1C3555D3027}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
