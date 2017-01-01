@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D40F289F-AB38-4083-86DE-F1043E2D377B}</ProjectGuid>
+    <ProjectGuid>{3E44334A-B80A-4335-BCF0-790041830EF9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>plugins</RootNamespace>
+    <RootNamespace>Polynomial</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>LLVM-vs2014</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -146,26 +146,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.rst" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="iPlugin.cpp" />
-    <ClCompile Include="iPluginManager.cpp" />
-    <ClCompile Include="iUnKnow.cpp" />
-    <ClCompile Include="LoadBalancePlugin.cpp" />
-    <ClCompile Include="LoginPlugin.cpp" />
+    <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Master.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common_type.h" />
-    <ClInclude Include="iPlugin.h" />
-    <ClInclude Include="iPluginManager.h" />
-    <ClInclude Include="iUnKnow.h" />
-    <ClInclude Include="LoadBalancePlugin.h" />
-    <ClInclude Include="LoginPlugin.h" />
-    <ClInclude Include="Master.h" />
-    <ClInclude Include="plugin_types.h" />
+    <ClInclude Include="Polynomial.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
