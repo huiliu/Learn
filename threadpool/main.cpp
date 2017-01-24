@@ -5,30 +5,52 @@
 #include <chrono>
 #include <random>
 #include <mutex>
-#include "LQueue.h"
+#include "BlockQueue.h"
+#include "ThreadPool.h"
+
+#define BEGIN_TEST(name)    std::cout << "开始[" << name << "]测试!" << std::endl
+#define END_TEST(name)      std::cout << "[" << name << "]测试完成!" << std::endl
 
 int count = 0;
 const int iMax = 100000;
 
 std::mutex mtx;
 
-void print(std::thread::id& id, int val)
+typedef std::function<void(int)>    CALLBACK;
+
+void print(int val)
 {
 	std::lock_guard<std::mutex> lg(mtx);
-	std::cout << "thread ID: " << id << " Get From Queu: " << val << std::endl;
+	std::cout << "thread ID: " << std::this_thread::get_id() << " Get From Queu: " << val << std::endl;
+}
+
+void test_threadpool()
+{
+    BEGIN_TEST("threadpool");
+
+    typedef std::function<void()>   TASK;
+
+    ThreadPool<TASK> tp(2);
+
+    tp.DispatchTask([] {
+        std::cout << "Hello " << std::this_thread::get_id() << std::endl;
+    });
+
+    END_TEST("threadpool");
 }
 
 int main()
 {
-	LQueue q;
+	BlockQueue<CALLBACK> q;
 	std::vector<std::thread> vecThread;
 
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
-		vecThread.emplace_back([&] {
+		vecThread.emplace_back([&, i] {
 			while (true)
 			{
-				print(std::this_thread::get_id(), q.Pop());
+                CALLBACK func = q.Pop();
+                func(i);
 			}
 		});
 	}
@@ -36,15 +58,17 @@ int main()
 	for (auto& thr : vecThread)
 		thr.detach();
 
-	std::random_device rd;
+    CALLBACK func = print;
 	for (int i = 0; i < 10 ; i++)
 	{
-		q.Push(i);
+		q.Push(func);
 	}
 
 	using namespace std::chrono_literals;
 	std::this_thread::sleep_for(5s);
 	
+    test_threadpool();
+
     return 0;
 }
 
