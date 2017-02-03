@@ -150,9 +150,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test_threadpool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlockQueue.h" />
+    <ClInclude Include="test.h" />
     <ClInclude Include="ThreadPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,28 +1,23 @@
-#pragma once
 #ifndef __LIUHUI_THREADPOOL_H__
 #define __LIUHUI_THREADPOOL_H__
 #include "BlockQueue.h"
+
+// 退出线程标识
+#define EXIT_THREAD     -1
 
 template<typename T>
 class ThreadPool
 {
 public:
     ThreadPool(size_t sz)
-        : m_PoolSize(sz)
     {
-        std::function<void()> backend = std::bind(&ThreadPool::Daemon, this);
-        for (size_t i = 0; i < sz; i++)
-        {
-            m_Threads.push_back(std::thread(backend));
-        }
+        IncThread(sz);
     }
 
     ~ThreadPool()
     {
-        for (size_t i = 0; i < m_PoolSize; i++)
-        {
-            m_TaskQueue.Push(T());
-        }
+        auto count = m_Threads.size();
+        DecThread(count);
 
         for (auto& thr : m_Threads)
             thr.join();
@@ -36,43 +31,38 @@ public:
     
     void IncThread(size_t num)
     {
-        m_PoolSize += num;
-
+        std::function<void()> backend = std::bind(&ThreadPool::Daemon, this);
         for (size_t i = 0; i < num; i++)
         {
-            m_Threads.push_back(std::thread(Daemon));
+            m_Threads.push_back(std::thread(backend));
         }
     }
 
     void DecThread(size_t num)
     {
-        m_PoolSize -= num;
-
         for (size_t i = 0; i < num; i++)
         {
-            m_TaskQueue.Push(T());
+            DispatchTask([] { return EXIT_THREAD; });
         }
     }
 
 private:
     void Daemon()
     {
+        std::cout << "new thread " << std::this_thread::get_id() << " created!" << std::endl;
+
         while (true)
         {
             T func = m_TaskQueue.Pop();
-            if (func)
+            if (func && func() == EXIT_THREAD)
             {
-                func();
-            }
-            else
-            {
-                break;
+                std::cout << std::this_thread::get_id() << " thread exit!" << std::endl;
+                return;
             }
         }
     }
 
 private:
-    size_t                      m_PoolSize;
     BlockQueue<T>               m_TaskQueue;
     std::vector<std::thread>    m_Threads;
 };
