@@ -35,5 +35,17 @@
     <ClInclude Include="sqlite3.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="iPersistObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iPersistTransaction.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iPersistStatement.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="iPersistHandler.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,7 +3,6 @@
 
 #include <string>
 
-class iDataResult;
 class iDataStatement;
 class iDataTrasaction;
 class iResultSet;
