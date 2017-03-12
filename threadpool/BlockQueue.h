@@ -15,7 +15,7 @@ public:
 
 public:
 
-	void Push(T val)
+	void Push(const T& val)
     {
         std::lock_guard<std::mutex> lg(m_mutex);
 
@@ -23,17 +23,29 @@ public:
 
         if (m_queue.size() <= 1)
         {
-            m_cond.notify_all();
+            m_condNotEmpty.notify_all();
         }
     }
 
+	void Push(T&& val)
+    {
+        std::lock_guard<std::mutex> lg(m_mutex);
+
+        m_queue.push(val);
+
+        if (m_queue.size() <= 1)
+        {
+            m_condNotEmpty.notify_all();
+        }
+    }
+    
 	T Pop()
     {
         std::unique_lock<std::mutex> ul(m_mutex);
 
         while (m_queue.size() <= 0)
         {
-            m_cond.wait(ul);
+            m_condNotEmpty.wait(ul);
         }
         
         T ret = m_queue.front();
@@ -45,7 +57,7 @@ public:
 private:
 	std::queue<T>   m_queue;
 	std::mutex		m_mutex;
-	std::condition_variable m_cond;
+	std::condition_variable m_condNotEmpty;
 };
 
 #endif
