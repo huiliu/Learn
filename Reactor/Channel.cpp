@@ -2,6 +2,11 @@
 #include "EventLoop.h"
 #include <cassert>
 
+// pollÊÂ¼þ
+// http://man7.org/linux/man-pages/man3/poll.3p.html
+// https://msdn.microsoft.com/zh-cn/library/windows/desktop/ms740094(v=vs.85).aspx
+
+#ifdef _MSC_VER
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
@@ -10,6 +15,15 @@
 const int Channel::kNoneEvent = 0;
 const int Channel::kReadEvent = POLLIN;
 const int Channel::kWriteEvent = POLLOUT;
+
+#else
+
+const int Channel::kNoneEvent = 0;
+const int Channel::kReadEvent = POLLIN | POLLPRI;
+const int Channel::kWriteEvent = POLLOUT;
+
+#endif // _MSC_VER
+
 
 Channel::Channel(EventLoop * loop, int fd)
     : m_fd(fd)

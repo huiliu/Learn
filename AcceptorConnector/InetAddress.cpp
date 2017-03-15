@@ -1,4 +1,14 @@
 #include "InetAddress.h"
+#include <cassert>
+
+#ifdef _MSC_VER
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <ws2tcpip.h>
+#else
+// non windows
+#endif // _MSC_VER
 
 InetAddress::InetAddress(uint16_t port, bool loopbackonly, bool /*ipv6*/)
 {

@@ -1,6 +1,7 @@
 #pragma once
 
 class InetAddress;
+
 class Socket
 {
 public:
@@ -12,6 +13,8 @@ public:
 
     Socket(const Socket&) = delete;
     Socket& operator=(const Socket&) = delete;
+
+    Socket(Socket&& other);
 
 public:
     int fd() const { return m_fd; }
@@ -34,6 +37,6 @@ public:
     void shutdownWrite();
 
 private:
-    const int m_fd;
+    int m_fd;
 };
 

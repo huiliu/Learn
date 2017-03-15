@@ -44,3 +44,9 @@ void EventLoop::updateChannel(Channel* channel)
     assert(m_poller);
     m_poller->updateChannel(channel);
 }
+
+void EventLoop::unregisterChannel(Channel* channel)
+{
+    assert(m_poller);
+    m_poller->removeChannel(channel);
+}

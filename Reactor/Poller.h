@@ -17,6 +17,7 @@ public:
 
     int poll(int timeoutMs, ChannelList* activeChannels);
     void updateChannel(Channel* channel);
+    void removeChannel(Channel* channel);
 
 private:
     void fillActiveChannels(int numEvents, ChannelList* activeChannels);

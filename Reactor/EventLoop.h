@@ -15,6 +15,8 @@ public:
     void quit();
     void updateChannel(Channel* channel);
 
+    void unregisterChannel(Channel* channel);
+
 private:
     typedef std::vector<Channel*>   ChannelVector;
 

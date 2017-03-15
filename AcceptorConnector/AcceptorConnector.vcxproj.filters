@@ -24,18 +24,21 @@
     <ClCompile Include="InetAddress.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="NetService.cpp">
+    <ClCompile Include="Socket.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Socket.cpp">
+    <ClCompile Include="TcpConnection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpServer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Buffer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ErrorCode.h">
@@ -44,10 +47,19 @@
     <ClInclude Include="InetAddress.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="NetService.h">
+    <ClInclude Include="Socket.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Socket.h">
+    <ClInclude Include="TcpConnection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpServer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

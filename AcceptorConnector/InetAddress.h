@@ -1,7 +1,21 @@
 #pragma once
-#include "common.h"
 #include <cstdint>
 #include <string>
+
+#ifdef _MSC_VER
+#else
+#include <netinet/in.h>
+#endif // _MSC_VER
+
+#ifdef _MSC_VER
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#include <winsock2.h>
+#else
+// non windows
+#include <netinet/in.h>
+#endif // _MSC_VER
 
 class InetAddress
 {

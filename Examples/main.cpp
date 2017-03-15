@@ -1,21 +1,28 @@
 #include "../AcceptorConnector/Acceptor.h"
 #include "../AcceptorConnector/InetAddress.h"
+#include "../AcceptorConnector/TcpServer.h"
 #include "../Reactor/EventLoop.h"
 #include "../Reactor/Poller.h"
 #include "common.h"
 #include <iostream>
 
 void
-newConnectionCallback(Socket&& socket, const InetAddress& peerAddr)
+onConnection(const TcpConnectionPtr& conn)
 {
-    if (socket.fd() <= 0)
+    if (conn->connected())
     {
-        std::cout << "invalid socket!" << std::endl;
-        return;
+        printf("onConnection: new connection %s\n", conn->name().data());
     }
+    else
+    {
+        printf("onConnection: connection %s is down!\n", conn->name().data());
+    }
+}
 
-    std::cout << "connection come from " << peerAddr.ip() << ":" << peerAddr.port() << std::endl;
-    socket.close();
+void
+onMessage(const TcpConnectionPtr& conn, const char* buff, int size)
+{
+    printf("%s connection received message %s\n", conn->name().data(), buff);
 }
 
 int main()
@@ -24,10 +31,11 @@ int main()
 
     EventLoop loop;
     Poller poll(&loop);
-    Acceptor acceptor(&loop, InetAddress(8090));
+    TcpServer server("server", &loop, InetAddress(8090));
 
-    acceptor.setNewConnectionCallback(newConnectionCallback);
-    acceptor.listen();
+    server.setConnectionCallback(onConnection);
+    server.setMessageCallback(onMessage);
+    server.start();
 
     loop.loop();
 
