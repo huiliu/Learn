@@ -44,7 +44,7 @@ void Server::start()
 {
 	for (;;)
 	{
-		tcp::socket socket(m_acceptor.get_io_service());
+		tcp::socket socket(m_acceptor.get_executor());
 		m_acceptor.accept(socket);
 
 		boost::system::error_code ec;
@@ -71,7 +71,7 @@ private:
 
 void Client::start()
 {
-	tcp::resolver resolver(m_socket.get_io_service());
+	tcp::resolver resolver(m_socket.get_executor());
 	tcp::resolver::query query("127.0.0.1", "9090");
 	tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
 	

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "widget", "widget\widget.vcxproj", "{E9C7A22C-2070-4DCA-AE98-F15AABDC6C09}"
 EndProject
@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplicationTest", "C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heap_example", "heap_example\heap_example.vcxproj", "{78BD2FEB-2F14-4A4A-BCA5-76FCF3B1A7D2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "new_operator", "new_operator\new_operator.vcxproj", "{6208959E-DB41-4B3F-8369-539086BFBD30}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "feature_test", "new_operator\new_operator.vcxproj", "{6208959E-DB41-4B3F-8369-539086BFBD30}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chat", "chat\chat.vcxproj", "{A3983268-F923-464C-9B58-94E5F212A60C}"
 EndProject
@@ -64,6 +64,12 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AcceptorConnector", "AcceptorConnector\AcceptorConnector.vcxproj", "{7542371E-66E2-4DCA-917B-E16B1E54B2C5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examples", "Examples\Examples.vcxproj", "{733EA2D9-0E48-40E7-BE2B-015B0DB3E336}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "log", "log", "{8FCD89F7-B671-4515-B903-DB1B31BF0BBD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "log101", "log101\log101.vcxproj", "{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "utf8", "utf8\utf8.vcxproj", "{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -289,6 +295,22 @@ Global
 		{733EA2D9-0E48-40E7-BE2B-015B0DB3E336}.Release|x64.Build.0 = Release|x64
 		{733EA2D9-0E48-40E7-BE2B-015B0DB3E336}.Release|x86.ActiveCfg = Release|Win32
 		{733EA2D9-0E48-40E7-BE2B-015B0DB3E336}.Release|x86.Build.0 = Release|Win32
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Debug|x64.ActiveCfg = Debug|x64
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Debug|x64.Build.0 = Debug|x64
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Debug|x86.ActiveCfg = Debug|Win32
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Debug|x86.Build.0 = Debug|Win32
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Release|x64.ActiveCfg = Release|x64
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Release|x64.Build.0 = Release|x64
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Release|x86.ActiveCfg = Release|Win32
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D}.Release|x86.Build.0 = Release|Win32
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Debug|x64.ActiveCfg = Debug|x64
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Debug|x64.Build.0 = Debug|x64
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Debug|x86.ActiveCfg = Debug|Win32
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Debug|x86.Build.0 = Debug|Win32
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Release|x64.ActiveCfg = Release|x64
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Release|x64.Build.0 = Release|x64
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Release|x86.ActiveCfg = Release|Win32
+		{21E5D276-236D-4FEA-8DA0-4ADD22A3353F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -305,5 +327,10 @@ Global
 		{AA23B09B-70DF-4ED0-8551-430960246754} = {E0398EF8-F404-464D-A71C-23F19A136469}
 		{7542371E-66E2-4DCA-917B-E16B1E54B2C5} = {E0398EF8-F404-464D-A71C-23F19A136469}
 		{733EA2D9-0E48-40E7-BE2B-015B0DB3E336} = {E0398EF8-F404-464D-A71C-23F19A136469}
+		{8FCD89F7-B671-4515-B903-DB1B31BF0BBD} = {70C1D5B6-851C-4CD6-8B55-0976F97AFABB}
+		{35DEAE62-BDF9-45A6-86E5-F6B3A42D636D} = {8FCD89F7-B671-4515-B903-DB1B31BF0BBD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93AB01E5-5C2D-49A4-A22F-AF159BF1C1DE}
 	EndGlobalSection
 EndGlobal
